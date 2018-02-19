@@ -1,12 +1,14 @@
-d = {'W': int(input())}
-
-for i in range(d['W']):
-    c_d = d
-    val = 0
-    for j in input():
-        if j not in c_d:
-            c_d[j] = {'W': 1}
-        c_d = c_d[j]
-        c_d['W'] = c_d['W'] + 1
-        val = c_d['W']
-    print(val - 2)
+n = int(input())
+for i in range(0, n):
+    m = int(input())
+    d = {}
+    for j in range(0, m):
+        line = input().strip().split()
+        if line[1] in d:
+            d[line[1]] += 1
+        else:
+            d[line[1]] = 2
+    t = 1
+    for disguise in d:
+        t *= d[disguise]
+    print(t-1)
